@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="timeslots-container">
+    <h2>Select Appointment Time</h2>
+    
+    {% for date, slots in slots_by_date.items() %}
+        {% if slots|length > 0 %}
+            <h3 class="date-header">{{ date }}</h3>
+            <div class="timeslot-group">
+            {% for slot in slots %}
+                {% if slot.available %}
+                        <a href="{{ url_for('select_timeslot', 
+                                          clinic_id=clinic_id, 
+                                          service_id=service_id, 
+                                          selected_timeslot=slot.id,
+                                          date=date,
+                                          time=slot.time) }}" 
+                           class="timeslot-btn available">
+                            {{ slot.time }}
+                        </a>
+                {% else %}
+                        <div class="timeslot-btn unavailable">
+                            {{ slot.time }}
+                            <span class="full-indicator">Full</span>
+                        </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

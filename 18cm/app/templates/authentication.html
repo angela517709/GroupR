@@ -1,0 +1,94 @@
+{% extends "iamsmart_base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-box">
+        <div class="face-scan-animation">
+            <div class="scan-line"></div>
+            <div class="face-outline">👤</div>
+        </div>
+        <h3>Face Recognition</h3>
+        <p>Please look at the camera</p>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.auth-box {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.face-scan-animation {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    background: #f8f9fa;
+}
+
+.face-outline {
+    font-size: 80px;
+    line-height: 150px;
+    color: #41978F;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #41978F;
+    animation: scan 0.5s linear infinite;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: #eee;
+    border-radius: 2px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #41978F;
+    animation: progress 1s linear forwards;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+</style>
+
+<script>
+setTimeout(() => {
+    window.location.href = "{{ url_for('complete_auth') }}";
+}, 1000);
+</script>
+{% endblock %}

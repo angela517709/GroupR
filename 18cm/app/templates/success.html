@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="success-container">
+    <div class="success-content">
+        <h2>Booking Successful!</h2>
+        <p>Your appointment has been confirmed.</p>
+        <div class="button-group">
+            <a href="{{ url_for('enquiry') }}" class="btn primary">View My Appointments</a>
+            <a href="{{ url_for('index') }}" class="btn secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<style>
+.success-container {
+    position: relative;
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.success-content {
+    width: 100%;
+    padding: 20px;
+}
+
+.success-content h2 {
+    color: #41978F;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.success-content p {
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn.primary {
+    background: #41978F;
+    color: white;
+}
+
+.btn.secondary {
+    background: #f1f5f9;
+    color: #64748b;
+}
+</style>
+{% endblock %}

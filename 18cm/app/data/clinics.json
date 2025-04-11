@@ -1,0 +1,192 @@
+{
+    "HongKongIsland": [
+      {
+        "District": "Central & Western District",
+        "Address": "1/F, Hawkins Wing and Yeo Wing, Tung Wah Hospital, 12 Po Yan Street, Sheung Wan, Hong Kong",
+        "Telephone": "2589 4700",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 13:00, 14:00 - 18:00",
+          "Saturday": "09:00 - 13:00, 14:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        }
+      },
+      {
+        "District": "Eastern District",
+        "Address": "Lower 4th Floor, West Wing, Specialist Out-patient Block, Pamela Youde Nethersole Eastern Hospital, 3 Lok Man Road, Chai Wan, Hong Kong",
+        "Telephone": "3197 2000",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 13:00, 14:00 - 18:00",
+          "Saturday": "09:00 - 13:00, 14:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        }
+      },
+      {
+        "District": "Southern District",
+        "Address": "2/F, Aberdeen Jockey Club Clinic, 10 Aberdeen Reservoir Road, Aberdeen, Hong Kong",
+        "Telephone": "2580 8158",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 20:00",
+          "Saturday": "09:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        }
+      },
+      {
+        "District": "Wan Chai District",
+        "Address": "2/F, Tang Shiu Kin Hospital Community Ambulatory Care Centre, 282 Queen's Road East, Wan Chai, Hong Kong",
+        "Telephone": "3553 3238",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 20:00",
+          "Saturday": "09:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        }
+      }
+    ],
+    "Kowloon": [
+      {
+        "District": "Kowloon City District",
+        "Address": "Unit 401-412, Po Man House, Oi Man Estate, Ho Man Tin, Kowloon",
+        "Telephone": "2193 7000",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 13:00, 14:00 - 19:00",
+          "Saturday": "09:00 - 13:00, 14:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      },
+      {
+        "District": "Yau Tsim Mong District",
+        "Address": "9/F, Block R, Queen Elizabeth Hospital, 30 Gascoigne Road, Jordan, Kowloon",
+        "Telephone": "2618 7200",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 13:00, 14:00 - 19:00",
+          "Saturday": "09:00 - 13:00, 14:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      },
+      {
+        "District": "Sham Shui Po District",
+        "Address": "1/F, Cheung Sha Wan Government Offices, 303 Cheung Sha Wan Road, Sham Shui Po, Kowloon",
+        "Telephone": "2194 9911",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 19:00",
+          "Saturday": "09:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        }
+      },
+      {
+        "District": "Wong Tai Sin District",
+        "Address": "G/F & M/F, Block C, Hong Kong Buddhist Hospital, 10 Heng Lam Street, Lok Fu, Kowloon",
+        "Telephone": "2338 3103",
+        "ServiceHours": {
+          "MondayToSaturday": "09:00 - 19:30",
+          "SundayAndPublicHolidays": "closed"
+        }
+      },
+      {
+        "District": "Kwun Tong District",
+        "Address": "4/F, Ngau Tau Kok Jockey Club Clinic, 60 Ting On Street, Ngau Tau Kok, Kowloon",
+        "Telephone": {
+          "GovernmentSubsidisedChineseMedicineServices": "3583 4114",
+          "GeneralEnquiry": "3107 4113"
+        },
+        "ServiceHours": {
+          "MondayToSaturday": "08:15 - 18:00",
+          "SundayAndPublicHolidays": "closed"
+        }
+      }
+    ],
+    "NewTerritories": [
+      {
+        "District": "Tai Po District",
+        "Address": "G/F, Block J, Alice Ho Miu Ling Nethersole Hospital, 11 Chuen On Road, Tai Po, New Territories",
+        "Telephone": "2663 0004",
+        "ServiceHours": {
+          "MondayToSaturday": "08:30 - 18:30",
+          "SundayAndPublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      },
+      {
+        "District": "Yuen Long District",
+        "Address": "3/F, Madam Yung Fung Shee Health Centre, 26 Sai Ching Street, Yuen Long, New Territories",
+        "Telephone": "2478 5769",
+        "ServiceHours": {
+          "MondayToSaturday": "09:00 - 13:00, 14:00 - 19:00",
+          "SundayAndPublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      },
+      {
+        "District": "Tuen Mun District",
+        "Address": "5/F, Yan Oi Polyclinic, 6 Tuen Lee Street, Tuen Mun, New Territories",
+        "Telephone": "2430 1309",
+        "ServiceHours": {
+          "MondayToSaturday": "08:00 - 13:00, 14:00 - 18:00",
+          "SundayAndPublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      },
+      {
+        "District": "North District",
+        "Address": "7/F, Fanling Health Centre, 2 Pik Fung Road, Fanling, New Territories",
+        "Telephone": "2670 2130",
+        "ServiceHours": {
+          "MondayToSaturday": "08:30 - 17:30",
+          "SundayAndPublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      },
+      {
+        "District": "Sha Tin District",
+        "Address": "G/F, Sha Tin (Tai Wai) Clinic, 2 Man Lai Road, Tai Wai, Sha Tin, New Territories",
+        "Telephone": "2479 2126",
+        "ServiceHours": {
+          "MondayToSaturday": "08:30 - 13:00, 14:00 - 18:00",
+          "SundayAndPublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      },
+      {
+        "District": "Sai Kung District",
+        "Address": "6/F, Ambulatory Care Block, Tseung Kwan O Hospital, No 2 Po Ning Lane, Hang Hau, Tseung Kwan O, New Territories",
+        "Telephone": "2701 1020",
+        "ServiceHours": {
+          "MondayToFriday": "08:30 - 19:30",
+          "Saturday": "08:30 - 17:30",
+          "SundayAndPublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      },
+      {
+        "District": "Tsuen Wan District",
+        "Address": "4/F, Block C, Yan Chai Hospital, 7-11 Yan Chai Street, Tsuen Wan, New Territories",
+        "Telephone": "2416 0303",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 13:00, 14:00 - 19:00",
+          "Saturday": "09:00 - 13:00, 14:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        }
+      },
+      {
+        "District": "Kwai Tsing District",
+        "Address": "G/F, Ha Kwai Chung Polyclinic & Special Education Services Centre, 77 Lai Cho Road, Kwai Chung, New Territories",
+        "Telephone": "2370 2216",
+        "ServiceHours": {
+          "MondayToFriday": "09:00 - 19:00",
+          "Saturday": "09:00 - 17:00",
+          "SundayAndPublicHolidays": "closed"
+        }
+      },
+      {
+        "District": "Islands District",
+        "Address": "1/F, Block 2, Tung Chung Health Centre, No. 6 Fu Tung Street, Tung Chung, Lantau Island, New Territories",
+        "Telephone": "3188 5383",
+        "ServiceHours": {
+          "MondayToSunday": "08:00 - 13:00, 14:00 - 18:00",
+          "PublicHolidays": "closed"
+        },
+        "Notes": "Provide Bone-Setting/Tuina Service"
+      }
+    ]
+  }

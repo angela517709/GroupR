@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="location-section">
+    <h2 class="section-title">Please select location</h2>
+    <div class="action-buttons">
+        <a href="{{ url_for('show_clinics', location='hong_kong') }}" class="action-button">
+            <span class="icon">🏥</span>
+            <span>Hong Kong Island</span>
+        </a>
+        <a href="{{ url_for('show_clinics', location='kowloon') }}" class="action-button">
+            <span class="icon">🏥</span>
+            <span>Kowloon</span>
+        </a>
+        <a href="{{ url_for('show_clinics', location='new_territories') }}" class="action-button">
+            <span class="icon">🏥</span>
+            <span>New Territories and Islands</span>
+        </a>
+    </div>
+</div>
+
+<style>
+.action-button {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: #e6f4f2;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #2c3e50;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.action-button span:not(.icon) {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.action-button .icon {
+    margin-right: 15px;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.action-buttons {
+    padding: 20px;
+}
+
+.section-title {
+    padding: 20px;
+    color: #2c3e50;
+}
+</style>
+{% endblock %}

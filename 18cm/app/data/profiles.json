@@ -1,0 +1,22 @@
+{
+  "profiles": [
+    {
+      "id": "",
+      "personal_info": {
+        "name": "",
+        "idNo": "",
+        "birthDate": "",
+        "gender": ""
+      }
+    },
+    {
+      "id": "A123456",
+      "personal_info": {
+        "name": "SAN, Chi Nan",
+        "idNo": "A123456A",
+        "birthDate": "19960000",
+        "gender": "M"
+      }
+    }
+  ]
+}

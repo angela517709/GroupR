@@ -1,0 +1,106 @@
+{% extends "iamsmart_base.html" %}
+
+{% block content %}
+<div class="register-container">
+    <div class="register-box">
+        <h3>Provide information to<br>18cm Clinic</h3>
+        <div class="user-data">
+            <div class="data-group">
+                <label>ID Number</label>
+                <p class="data-value">{{ user.idNo.Identification }}{{ user.idNo.CheckDigit }}</p>
+            </div>
+            
+            <div class="data-group">
+                <label>English Name</label>
+                <p class="data-value">{{ user.enName.UnstructuredName }}</p>
+            </div>
+            
+            <div class="data-group">
+                <label>Date of Birth</label>
+                <p class="data-value">{{ user.birthDate[:4] }}-{{ user.birthDate[4:6] }}-{{ user.birthDate[6:] }}</p>
+            </div>
+            
+            <div class="data-group">
+                <label>Gender</label>
+                <p class="data-value">{{ "Male" if user.gender == "M" else "Female" }}</p>
+            </div>
+            
+            <div class="button-container">
+                <form action="{{ url_for('complete_registration') }}" method="POST">
+                    <button type="submit" class="continue-btn">Continue</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.register-box {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.register-box h3 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.user-data {
+    margin-top: 20px;
+}
+
+.data-group {
+    margin-bottom: 20px;
+}
+
+.data-group label {
+    display: block;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.data-value {
+    color: #2c3e50;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.button-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.continue-btn {
+    background: #41978F;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+}
+</style>
+{% endblock %}

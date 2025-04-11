@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="enquiry-container">
+    <h2>Appointments Record</h2>
+    <div class="appointments-list">
+        {% if appointments %}
+            {% for appointment in appointments %}
+                <a href="{{ url_for('appointment_detail', appointment_id=appointment.id) }}" 
+                   class="appointment-card {% if appointment.status == 'past' %}past{% endif %}">
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <span class="label">Clinic:</span>
+                            <span class="value">{{ appointment.clinic_name }}</span>
+                        </div>
+<div class="detail-item">
+                            <span class="label">Service:</span>
+                            <span class="value">{{ appointment.service_type }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Date & Time:</span>
+                            <span class="value">{{ appointment.datetime.strftime('%Y-%m-%d %H:%M') }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Status:</span>
+                            <span class="value">{{ appointment.status }}</span>
+                        </div>
+                    </div>
+                    <div class="view-details">
+                        <span>View Details →</span>
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+            <p class="no-appointments">No appointment records found.</p>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+.enquiry-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.enquiry-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.appointment-card {
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.detail-item {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.label {
+    color: #666;
+    margin-right: 8px;
+}
+
+.value {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.view-details {
+    text-align: right;
+    color: #41978F;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.no-appointments {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+</style>
+{% endblock %}

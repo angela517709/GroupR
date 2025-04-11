@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="settings-container">
+    <div class="settings-box">
+        <h3>Settings</h3>
+        <div class="settings-list">
+            <div class="settings-item">
+                <form action="{{ url_for('logout') }}" method="POST">
+                    <button type="submit" class="logout-btn">
+                        <span class="icon">🚪</span>
+                        <span>Log Out</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.settings-container {
+    padding: 20px;
+}
+
+.settings-box {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.settings-box h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #dc3545;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #fff1f1;
+}
+
+.icon {
+    font-size: 20px;
+}
+</style>
+{% endblock %}

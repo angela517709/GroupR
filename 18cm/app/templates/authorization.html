@@ -1,0 +1,110 @@
+{% extends "iamsmart_base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-box">
+        <h3>Authorization Required</h3>
+        <h4>for Registration</h4>
+        <div class="auth-content">
+            <img src="/static/images/iamsmart_logo_2.png" alt="iAM Smart" class="auth-logo">
+            <p class="auth-text">You are being redirected to iAM Smart for authentication.</p>
+            <p class="auth-text">Please authorize access to:</p>
+            <ul class="auth-list">
+                <li>English Name</li>
+                <li>Date of Birth</li>
+                <li>HK ID No.</li>
+                <li>Gender</li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="{{ url_for('process_auth') }}" class="auth-btn confirm">Proceed to iAM Smart</a>
+                <a href="{{ url_for('login') }}" class="auth-btn cancel">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.auth-box {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.auth-logo {
+    height: 40px;
+    margin: 20px 0;
+}
+
+.auth-text {
+    color: #2c3e50;
+    margin: 15px 0;
+    text-align: left;  /* Added to align the text above list */
+}
+
+.auth-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;  /* Changed from margin: 20px auto */
+    text-align: left;
+    width: 100%;      /* Changed from 80% */
+}
+
+.auth-list li {
+    color: #41978F;
+    padding: 8px 0;
+    position: relative;
+    padding-left: 24px;
+    text-align: left;
+    margin-left: 0;   /* Changed from 40px */
+}
+
+.auth-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #41978F;
+}
+
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.auth-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.auth-btn.confirm {
+    background: #41978F;
+    color: white;
+}
+
+.auth-btn.cancel {
+    background: white;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+}
+</style>
+{% endblock %}

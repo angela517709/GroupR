@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="service-list">
+    {% for service in services %}
+    <a href="{{ url_for('set_service', clinic_id=clinic_id, service_id=service.id) }}"
+        class="service-btn">
+        {{ service.name }}
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

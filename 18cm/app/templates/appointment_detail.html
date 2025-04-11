@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="detail-container" style="padding-bottom: 80px;">
+    <div class="detail-section">
+        <h3>Personal Information</h3>
+        <div class="info-grid">
+            <div class="info-item">
+                <label>Name</label>
+                <span>{{ user.name }}</span>
+            </div>
+            <div class="info-item">
+                <label>ID Number</label>
+                <span>{{ user.idNo }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-section">
+        <h3>Appointment Details</h3>
+        <div class="info-grid">
+            <div class="info-item">
+                <label>Clinic</label>
+                <span>{{ appointment.clinic_name }}</span>
+            </div>
+            <div class="info-item">
+                <label>Service</label>
+                <span>{{ appointment.service_type }}</span>
+            </div>
+            <div class="info-item">
+                <label>Date</label>
+                <span>{{ appointment.datetime.strftime('%Y-%m-%d') }}</span>
+            </div>
+            <div class="info-item">
+                <label>Time</label>
+                <span>{{ appointment.datetime.strftime('%H:%M') }}</span>
+            </div>
+            <div class="info-item">
+                <label>Status</label>
+                <span class="status-{{ appointment.status }}">{{ appointment.status|title }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-section">
+        <h3>Clinic Information</h3>
+        <div class="info-grid">
+            <div class="info-item">
+                <label>Address</label>
+                <span>{{ clinic_details.Address }}</span>
+            </div>
+            <div class="info-item">
+                <label>Telephone</label>
+                <span>{{ clinic_details.Telephone }}</span>
+            </div>
+        </div>
+    </div>
+
+    {% if appointment.status == 'upcoming' %}
+    <div class="detail-section">
+        <button onclick="showCancelDialog()" class="cancel-btn">Cancel Appointment</button>
+    </div>
+    {% endif %}
+
+    <div id="cancelDialog" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Cancel Appointment</h3>
+            <p>Are you sure you want to cancel this appointment?</p>
+            <div class="modal-buttons">
+                <button onclick="closeModal()" class="modal-btn secondary">No</button>
+                <button onclick="cancelAppointment()" class="modal-btn primary">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.detail-container {
+    position: relative;
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #fff;
+    padding: 16px;
+}
+
+.detail-section {
+    margin-bottom: 24px;
+    padding: 0 4px;
+}
+
+.detail-section h3 {
+    color: #2c3e50;
+    font-size: 15px;
+    margin: 0 0 16px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.info-item {
+    display: flex;
+    align-items: baseline;
+    line-height: 1.4;
+}
+
+.info-item label {
+    color: #94a3b8;
+    font-size: 14px;
+    min-width: 90px;
+}
+
+.info-item label::after {
+    content: ":";
+    margin: 0 8px;
+}
+
+.info-item span {
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-upcoming {
+    color: #41978F;
+    background: rgba(65, 151, 143, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.status-cancelled {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.cancel-btn {
+    width: 100%;
+    padding: 14px;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.cancel-btn:active {
+    background: #fecaca;
+}
+
+/* Modal styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 414px;  /* Match container max-width exactly */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    margin: 0 auto;
+}
+
+.modal-content {
+    background: white;
+    width: 85%;
+    border-radius: 16px;
+    padding: 24px;
+    margin: auto;  /* Center the content */
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Update modal button styles to match app style */
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.modal-btn.primary {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.modal-btn.primary:active {
+    background: #fecaca;
+}
+
+.modal-btn.secondary {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.modal-btn.secondary:active {
+    background: #e2e8f0;
+}
+</style>
+
+<script>
+let scrollPosition = 0;
+
+function showCancelDialog() {
+    const modal = document.getElementById('cancelDialog');
+    const container = document.querySelector('.detail-container');
+    
+    // Store scroll position and lock scroll
+    scrollPosition = window.pageYOffset;
+    container.style.top = `-${scrollPosition}px`;
+    container.classList.add('no-scroll');
+    
+    // Add padding to prevent content shift
+    document.body.style.paddingRight = window.innerWidth - document.documentElement.clientWidth + 'px';
+    
+    modal.style.display = 'flex';
+}
+
+function closeModal() {
+    const modal = document.getElementById('cancelDialog');
+    const container = document.querySelector('.detail-container');
+    
+    container.classList.remove('no-scroll');
+    container.style.top = '';
+    window.scrollTo(0, scrollPosition);
+    
+    // Remove padding
+    document.body.style.paddingRight = '';
+    
+    modal.style.display = 'none';
+}
+
+function cancelAppointment() {
+    fetch(`/api/appointments/{{ appointment.id }}/cancel`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = "{{ url_for('enquiry') }}";
+        } else {
+            alert('Failed to cancel appointment');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to cancel appointment');
+    });
+}
+
+// Close modal if user clicks outside
+window.onclick = function(event) {
+    const modal = document.getElementById('cancelDialog');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
+{% endblock %}

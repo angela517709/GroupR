@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="confirm-container">
+    <div class="confirm-section">
+        <h3>Personal Information</h3>
+        <div class="data-grid">
+            <div class="data-item">
+                <label>Name:</label>
+                <p>{{ user.name }}</p>
+            </div>
+            <div class="data-item">
+                <label>ID:</label>
+                <p>{{ user.idNo }}</p>
+            </div>
+            <div class="data-item">
+                <label>DOB:</label>
+                <p>{{ user.birthDate[:4] }}-{{ user.birthDate[4:6] }}-{{ user.birthDate[6:] }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="confirm-section">
+        <h3>Appointment Details</h3>
+        <div class="data-grid">
+            <div class="data-item">
+                <label>Clinic:</label>
+                <p>{{ booking.clinic.name }}</p>
+            </div>
+            <div class="data-item">
+                <label>Service:</label>
+                <p>{{ booking.service }}</p>
+            </div>
+            <div class="data-item">
+                <label>Date/Time:</label>
+                <p>{{ booking.timeslot.date }} {{ booking.timeslot.time }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <form method="POST">
+            <button type="submit" class="confirm-btn">Confirm</button>
+        </form>
+        <button onclick="window.history.back()" class="cancel-btn">Cancel</button>
+    </div>
+</div>
+
+<style>
+.confirm-container {
+    padding: 20px;
+}
+
+.confirm-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h3 {
+    color: #41978F;
+    font-size: 18px;
+    margin: 0 0 15px 0;
+}
+
+.data-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.data-item {
+    display: flex;
+    align-items: baseline;
+}
+
+.data-item label {
+    color: #666;
+    font-size: 15px;
+    margin-right: 12px;
+    min-width: 70px;
+}
+
+.data-item p {
+    color: #2c3e50;
+    font-size: 15px;
+    margin: 0;
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.button-group form {
+    margin: 0;
+}
+
+.confirm-btn, .cancel-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.confirm-btn {
+    background: #41978F;
+    color: white;
+}
+
+.cancel-btn {
+    background: #f8f9fa;
+    color: #989797;
+}
+</style>
+{% endblock %}

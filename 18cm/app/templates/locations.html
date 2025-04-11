@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="location-buttons">
+    <a href="{{ url_for('show_clinics', location='hong_kong') }}" class="location-btn">
+        Hong Kong Island
+    </a>
+    <a href="{{ url_for('show_clinics', location='kowloon') }}" class="location-btn">
+        Kowloon
+    </a>
+    <a href="{{ url_for('show_clinics', location='new_territories') }}" class="location-btn">
+        New Territories and Islands
+    </a>
+</div>
+{% endblock %}

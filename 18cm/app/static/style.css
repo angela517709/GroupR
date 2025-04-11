@@ -1,0 +1,954 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #E6EFEE;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #666;
+}
+
+.mobile-container {
+    max-width: 414px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #F5F9F9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #41978F;
+    color: white;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.back-btn {
+    position: absolute;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.back-btn i {
+    font-size: 1.2rem;
+}
+
+.back-btn:active {
+    transform: scale(0.95);
+}
+
+.back-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);  /* Makes the icon white */
+}
+
+.nav-bar {
+    display: none;
+}
+
+.content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.app-footer {
+    background: white;
+    border-top: 1px solid #eee;
+    padding: 0.5rem;
+    position: sticky;
+    bottom: 0;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #666;
+    padding: 0.5rem;
+}
+
+.bottom-nav-item.active {
+    color: #41978F;
+}
+
+.bottom-nav-item .icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.bottom-nav-item span {
+    font-size: 0.8rem;
+}
+
+/* Card styles */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Button styles */
+.button,
+.action-button,
+.confirm-btn,
+.cancel-btn {
+    background: #41978F;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.button:active,
+.action-button:active,
+.confirm-btn:active,
+.cancel-btn:active {
+    transform: scale(0.98);
+    background: #357c75;
+}
+
+.close-btn {
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    background: #f8f9fa;
+    color: #333;
+}
+
+.location-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.location-btn {
+    padding: 1rem;
+    background: #41978F;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.clinic-list, .service-list, .timeslot-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.clinic-card, .service-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.book-btn {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    background: #41978F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.book-btn.disabled {
+    background: #ccc;
+}
+
+.quota {
+    color: #28a745;
+}
+
+.no-quota {
+    color: #dc3545;
+}
+
+.service-list,
+.timeslot-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.service-btn,
+.timeslot-btn {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #41978F;
+    color: #41978F;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.success-page {
+    text-align: center;
+    padding: 2rem;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    background: #41978F;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.action-button:active {
+    transform: scale(0.98);
+}
+
+.action-button .icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: white;
+}
+
+.action-button span:not(.icon) {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.btn-accept,
+.btn-cancel {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-accept {
+    background: #28a745;
+    color: white;
+}
+
+.btn-cancel {
+    background: #dc3545;
+    color: white;
+}
+
+.home-container {
+    padding: 1rem;
+}
+
+.main-actions {
+    margin-top: 2rem;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #41978F;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+.action-button .icon {
+    font-size: 1.5rem;
+}
+
+/* New styles */
+.location-section {
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+.section-title {
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.location-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.location-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.2rem;
+    background: #41978F;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.location-btn .icon {
+    font-size: 1.5rem;
+}
+
+.location-btn:active {
+    transform: scale(0.98);
+}
+
+.profile-container {
+    padding: 1rem;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.profile-section {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-section h3 {
+    color: #41978F;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.info-item .label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.info-item .value {
+    font-weight: 500;
+}
+
+.enquiry-container {
+    padding: 1rem;
+}
+
+.appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.appointment-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.appointment-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.appointment-card.past {
+    opacity: 0.7;
+}
+
+.view-details {
+    margin-top: 0.5rem;
+    text-align: right;
+    color: #41978F;
+    font-size: 0.9rem;
+}
+
+.no-appointments {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+}
+
+.appointment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.clinic-name {
+    font-weight: 600;
+    color: #41978F;
+}
+
+.appointment-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.detail-item {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.detail-item .label {
+    color: #666;
+    min-width: 60px;
+}
+
+.timeslots-container {
+    padding: 1rem;
+}
+
+.date-header {
+    margin: 1.5rem 0 1rem;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.timeslot-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.timeslot-btn.available {
+    background: #41978F;
+    color: white;
+}
+
+.timeslot-btn.unavailable {
+    background: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.timeslot-group {
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.timeslot-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+}
+
+.timeslot-btn.available {
+    background: #41978F;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.timeslot-btn.available:active {
+    background: #357c75;
+}
+
+.timeslot-btn.unavailable {
+    background: #f0f0f0;
+    color: #999;
+    pointer-events: none;
+}
+
+.full-indicator {
+    position: absolute;
+    right: 10px;
+    font-size: 0.8rem;
+    color: #dc3545;
+}
+
+.appointment-detail-container {
+    padding: 1rem;
+}
+
+.appointment-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.detail-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.action-section {
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.cancel-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #41978F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.popup-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.confirm-btn, .close-btn {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.confirm-btn {
+    background: #41978F;
+    color: white;
+}
+
+.close-btn {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #dee2e6;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.confirm-btn, .close-btn {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.confirm-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.close-btn {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+}
+
+.popup-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.confirm-btn, .close-btn {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.confirm-btn {
+    background: #41978F;
+    color: white;
+}
+
+.close-btn {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    background: #41978F;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.action-button:active {
+    transform: scale(0.98);
+}
+
+.action-button .icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: white;
+}
+
+.action-button span:not(.icon) {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Modal and Popup styles */
+.modal-buttons,
+.popup-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.confirm-btn, 
+.close-btn {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.confirm-btn {
+    background: #41978F;
+    color: white;
+}
+
+.confirm-btn:active {
+    background: #357c75;
+}
+
+.close-btn {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #dee2e6;
+}
+
+/* Original Button Styles */
+.button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #41978F;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:active {
+    background: #357c75;
+}
+
+/* Cancel and Confirm Modal Buttons */
+.confirm-btn, .close-btn {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.confirm-btn {
+    background: #41978F;
+    color: white;
+}
+
+.close-btn {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #41978F;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button:active {
+    background: #357c75;
+}
+
+.btn-cancel {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #f8f9fa;
+    color: #333;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-cancel:active {
+    background: #e9ecef;
+}
+
+/* Primary Button Style */
+.button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #41978F;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.button:active {
+    transform: scale(0.98);
+    background: #357c75;
+}
+
+/* Secondary Button Style */
+.btn-cancel {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #f8f9fa;
+    color: #333;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-cancel:active {
+    background: #e9ecef;
+    transform: scale(0.98);
+}
+
+/* Button Container */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+/* Confirm Booking Section */
+.confirm-booking {
+    max-width: 500px;
+    margin: 0 auto;
+}

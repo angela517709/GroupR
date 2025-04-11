@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-avatar">👤</div>
+        <h2>Profile</h2>
+    </div>
+
+    <div class="profile-sections">
+        <div class="profile-section">
+            <h3>Personal Information</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">English Name</span>
+                    <span class="value">{{ user.enName }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Gender</span>
+                    <span class="value">{{ user.gender }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">ID Number</span>
+                    <span class="value">{{ user.idNo }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Date of Birth</span>
+                    <span class="value">{{ user.birthDate }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "idNo": {
+        "Identification": "A123456",
+        "CheckDigit": "A"
+      },
+      "enName": {
+        "UnstructuredName": "SAN, Chi Nan"
+      },
+      "chName": {
+        "ChineseName": "申智能"
+      },
+      "birthDate": "19960000",
+      "gender": "M"
+    }
+  ]
+}

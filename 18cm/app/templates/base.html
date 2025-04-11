@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}18cm App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function goBack() {
+            const currentPath = window.location.pathname;
+            
+            if (currentPath.includes('/appointment/')) {
+            window.location.href = "{{ url_for('enquiry') }}";
+            } else if (currentPath.includes('/confirm')) {
+                window.location.href = "{{ url_for('select_timeslot', clinic_id=session.get('clinic_id', 1), service_id=session.get('service_id', 1)) }}";
+            } else if (currentPath.includes('/timeslots')) {
+                window.location.href = "{{ url_for('select_service', clinic_id=session.get('clinic_id', 1)) }}";
+            } else if (currentPath.includes('/services')) {
+                window.location.href = "{{ url_for('show_clinics', location=session.get('location', 'hong_kong')) }}";
+            } else if (currentPath.includes('/clinics')) {
+                window.location.href = "{{ url_for('index') }}";
+            } else {
+                window.location.href = "{{ url_for('index') }}";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="mobile-container">
+        <header class="app-header">
+            {% if request.endpoint != 'index' and request.endpoint != 'login' %}
+            <button onclick="goBack()" class="back-btn">
+                <img src="{{ url_for('static', filename='images/back-arrow.png') }}" alt="Back" class="back-icon">
+            </button>
+            {% endif %}
+            <h1>18cm Clinics</h1>
+        </header>
+        
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>
+
+        {% if 'user_id' in session and request.endpoint not in ['login', 'complete_registration'] %}
+        <footer class="app-footer">
+            <div class="bottom-nav">
+                <a href="{{ url_for('index') }}" class="bottom-nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="{{ url_for('enquiry') }}" class="bottom-nav-item">
+                    <span class="icon">🔍</span>
+                    <span>Enquiry</span>
+                </a>
+                <a href="{{ url_for('profile') }}" class="bottom-nav-item">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </a>
+                <a href="{{ url_for('settings') }}" class="bottom-nav-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </footer>
+        {% endif %}
+    </div>
+</body>
+</html>

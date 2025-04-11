@@ -1,0 +1,60 @@
+{% extends "iamsmart_base.html" %}
+
+{% block content %}
+<div class="complete-container">
+    <div class="complete-box">
+        <div class="check-mark">✓</div>
+        <h3>Registration Complete</h3>
+        <p>You will be redirected to your profile in <span id="countdown">3</span> seconds...</p>
+    </div>
+</div>
+
+<style>
+.complete-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.complete-box {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.check-mark {
+    color: #41978F;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #666;
+}
+</style>
+
+<script>
+let count = 3;
+const countdown = document.getElementById('countdown');
+
+const timer = setInterval(() => {
+    count--;
+    countdown.textContent = count;
+    if (count <= 0) {
+        clearInterval(timer);
+        window.location.href = "{{ url_for('profile') }}";
+    }
+}, 1000);
+</script>
+{% endblock %}
