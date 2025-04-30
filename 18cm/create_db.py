@@ -1,5 +1,5 @@
 from app import app, db
-from app.models import Appointment  # Add this to import the Appointment model
+from app.models import Appointment, MedicalRecord, Diagnosis, Medication  # Add this to import the Appointment model
 
 def init_db():
     with app.app_context():

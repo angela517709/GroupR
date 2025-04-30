@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Medical Records{% endblock %}
+
+{% block content %}
+<div class="medical-records">
+    <h2>Medical Records</h2>
+    {% if records %}
+        {% for record in records %}
+        <div class="record-card" onclick="window.location.href='{{ url_for('medical_record_detail', record_id=record.id) }}'">
+            <div class="record-date">{{ record.visit_date.strftime('%Y-%m-%d') }}</div>
+            <div class="record-clinic">{{ record.clinic }}</div>
+            <div class="record-diagnosis">{{ record.diagnosis }}</div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No medical records found.</p>
+    {% endif %}
+</div>
+{% endblock %}

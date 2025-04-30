@@ -7,15 +7,21 @@
         <div class="data-grid">
             <div class="data-item">
                 <label>Name:</label>
-                <p>{{ user.name }}</p>
+                <p>{{ user.name if user else 'N/A' }}</p>
             </div>
             <div class="data-item">
                 <label>ID:</label>
-                <p>{{ user.idNo }}</p>
+                <p>{{ user.idNo if user else 'N/A' }}</p>
             </div>
             <div class="data-item">
                 <label>DOB:</label>
-                <p>{{ user.birthDate[:4] }}-{{ user.birthDate[4:6] }}-{{ user.birthDate[6:] }}</p>
+                <p>
+                    {% if user and user.birthDate %}
+                        {{ user.birthDate[:4] }}-{{ user.birthDate[4:6] }}-{{ user.birthDate[6:] }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </p>
             </div>
         </div>
     </div>
@@ -25,7 +31,7 @@
         <div class="data-grid">
             <div class="data-item">
                 <label>Clinic:</label>
-                <p>{{ booking.clinic.name }}</p>
+                <p>{{ booking.clinic.District }}</p>
             </div>
             <div class="data-item">
                 <label>Service:</label>

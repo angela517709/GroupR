@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Record Detail{% endblock %}
+
+{% block content %}
+<div class="medical-record-detail">
+    <h2>Medical Record Details</h2>
+    <div class="visit-info">
+        <p><strong>Date:</strong> {{ record.visit_date.strftime('%Y-%m-%d') }}</p>
+        <p><strong>Doctor:</strong> {{ record.doctor }}</p>
+        <p><strong>Clinic:</strong> {{ record.clinic }}</p>
+    </div>
+
+    <div class="diagnoses">
+        <h3>Diagnoses</h3>
+        {% for diagnosis in record.diagnoses %}
+        <div class="diagnosis-item">
+            <p class="diagnosis-desc">{{ diagnosis.description }}</p>
+            <p class="diagnosis-details">
+                Code: {{ diagnosis.code }} ({{ diagnosis.coding_system }})
+                <br>Date: {{ diagnosis.diagnosis_date.strftime('%Y-%m-%d') }}
+                <br>Status: {{ diagnosis.status }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="medications">
+        <h3>Medications</h3>
+        {% for medication in record.medications %}
+        <div class="medication-item">
+            <p class="med-name">{{ medication.name }}</p>
+            <p class="med-details">
+                Dosage: {{ medication.dosage }} {{ medication.unit }}
+                <br>Route: {{ medication.route }}
+                <br>Frequency: {{ medication.frequency }}
+                <br>Duration: {{ medication.duration }}
+                <br>Form: {{ medication.form }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

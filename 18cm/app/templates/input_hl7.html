@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Input HL7 Data</h2>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <div class="form-group">
+            <label for="hl7_data">HL7 Message:</label>
+            <textarea class="form-control" id="hl7_data" name="hl7_data" rows="10" required
+                placeholder="Enter HL7 message here..."></textarea>
+        </div>
+        
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Process HL7 Data</button>
+        </div>
+    </form>
+
+    <div class="mt-4">
+        <h4>Sample HL7 Message Format:</h4>
+        <pre class="bg-light p-3">
+MSH|^~\&|ClinicApp|MainClinic|EMR|MainClinic|202504291200||ADT^A01|MSG00002|P|2.3
+PID|1||200001^^^ClinicApp||San^Chi^Nan||19651220|M|||88 Health Rd^^City^ST^12345
+DG1|1||010001^Chronic gastritis^ICD10|||20250429|A
+RXE|^^^1005271^Solaray, Betaine HCL|250|MG|PO|BID|14|DAYS||20250429|capsule</pre>
+    </div>
+</div>
+{% endblock %}

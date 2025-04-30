@@ -2,70 +2,55 @@
 
 {% block content %}
 <div class="success-container">
-    <div class="success-content">
+    <div class="success-box">
+        <div class="success-icon">✓</div>
         <h2>Booking Successful!</h2>
         <p>Your appointment has been confirmed.</p>
-        <div class="button-group">
-            <a href="{{ url_for('enquiry') }}" class="btn primary">View My Appointments</a>
-            <a href="{{ url_for('index') }}" class="btn secondary">Back to Home</a>
-        </div>
+        <a href="{{ url_for('enquiry') }}" class="view-btn">View My Appointments</a>
     </div>
 </div>
 
 <style>
 .success-container {
-    position: relative;
-    max-width: 414px;
-    margin: 0 auto;
-    min-height: 100vh;
-    background: #fff;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: calc(100vh - 200px);
+}
+
+.success-box {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.success-content {
-    width: 100%;
-    padding: 20px;
-}
-
-.success-content h2 {
+.success-icon {
+    font-size: 48px;
     color: #41978F;
-    font-size: 24px;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
-.success-content p {
-    color: #64748b;
-    font-size: 16px;
-    margin-bottom: 24px;
+h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
 }
 
-.button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+p {
+    color: #666;
+    margin-bottom: 25px;
 }
 
-.btn {
-    padding: 14px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
-}
-
-.btn.primary {
+.view-btn {
+    display: inline-block;
+    padding: 12px 24px;
     background: #41978F;
     color: white;
-}
-
-.btn.secondary {
-    background: #f1f5f9;
-    color: #64748b;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
 }
 </style>
 {% endblock %}

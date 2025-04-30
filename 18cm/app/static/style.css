@@ -952,3 +952,72 @@ footer {
     max-width: 500px;
     margin: 0 auto;
 }
+
+/* Medical Records Styles */
+.medical-records {
+    padding: 1rem;
+}
+
+.record-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.record-date {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.record-clinic {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+.record-diagnosis {
+    margin-top: 0.5rem;
+    color: #34495e;
+}
+
+.record-detail {
+    padding: 1rem;
+}
+
+.record-info {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hl7-data {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.medical-record-detail {
+    padding: 1rem;
+}
+
+.diagnosis-item, .medication-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.diagnosis-desc, .med-name {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.diagnosis-details, .med-details {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
